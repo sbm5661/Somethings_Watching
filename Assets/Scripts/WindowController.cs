@@ -44,8 +44,8 @@ public class WindowController : MonoBehaviour
         }
 
         isLocked = !isLocked;
-        if (IsLocked) lockedCondition.SetCondition(true);
-        else lockedCondition.SetCondition(false);
+        if (IsLocked) lockedCondition?.SetCondition(true);
+        else lockedCondition?.SetCondition(false);
         Debug.Log(isLocked ? "Window locked" : "Window unlocked");
     }
 

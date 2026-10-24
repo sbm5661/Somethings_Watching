@@ -30,11 +30,11 @@ public class DoorLock : MonoBehaviour
         isLocked = !isLocked;
         if (isLocked)
         {
-            lockedCondition.SetCondition(true);
+            lockedCondition?.SetCondition(true);
         }
         else
         {
-            lockedCondition.SetCondition(false);
+            lockedCondition?.SetCondition(false);
         }
         UpdateVisual();
         Debug.Log(isLocked ? "Door locked" : "Door unlocked");

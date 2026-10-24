@@ -18,6 +18,7 @@ public class StoryManager : MonoBehaviour
             else storyFlags[i].nextFlag = null;
         }
         currentFlag = storyFlags[0];
+        currentFlag.onFlagSet?.Invoke();
         Debug.Log($"Starting Flag: {currentFlag.flagName}");
     }
 

@@ -5,6 +5,7 @@ public class ItemRequirement : MonoBehaviour
 {
     [Header("Required Item")]
     [SerializeField] private string requiredItemID;
+    [SerializeField] private bool requireSelection = true;
 
     [SerializeField] private bool consumeOnUse = false;
     [SerializeField] private bool useOnce = false;
@@ -25,6 +26,12 @@ public class ItemRequirement : MonoBehaviour
         InventoryManager inventory = InventoryManager.Instance;
 
         if (!inventory.HasItem(requiredItemID))
+        {
+            onFailure?.Invoke();
+            return;
+        }
+
+        if (requireSelection && inventory.SelectedItemID != requiredItemID)
         {
             onFailure?.Invoke();
             return;
