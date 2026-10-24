@@ -17,7 +17,7 @@ public class Computer : MonoBehaviour
 
     public void EnterComputer()
     {
-        CameraController.Instance.MoveCamera(cameraPosition.transform.position, cameraPosition.transform.eulerAngles, 1f);
+        CameraController.Instance.MoveCamera(cameraPosition.transform.position, cameraPosition.transform.eulerAngles);
         computerCollider.enabled = false;
         computerInterface.SetActive(true);
     }
@@ -27,6 +27,6 @@ public class Computer : MonoBehaviour
         computerCollider.enabled = true;
         computerInterface.SetActive(false);
         // Code to leave computer interface and return to the previous camera view
-        cameraController.MoveCamera(cameraController.previousPosition, cameraController.previousRotation, 1f);
+        cameraController.MoveCameraSmooth(cameraController.previousPosition, cameraController.previousRotation, 1f);
     }
 }
