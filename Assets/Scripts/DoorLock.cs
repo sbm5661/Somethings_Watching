@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorLock : MonoBehaviour, IInteractable
+public class DoorLock : MonoBehaviour
 {
     [Header("Lock Settings")]
     [SerializeField] private bool isLocked = false;
@@ -24,12 +24,10 @@ public class DoorLock : MonoBehaviour, IInteractable
         UpdateVisual();
     }
 
-    public void Interact()
+    public void ToggleLock()
     {
         isLocked = !isLocked;
-
         UpdateVisual();
-
         Debug.Log(isLocked ? "Door locked" : "Door unlocked");
     }
 
