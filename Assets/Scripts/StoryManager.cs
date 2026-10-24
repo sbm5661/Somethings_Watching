@@ -49,7 +49,10 @@ public class StoryManager : MonoBehaviour
             if (isFlagSet("door locked") && isFlagSet("window locked"))
             {
                 Debug.Log("Event triggered for both door and window locked");
-                DialogueManager.Instance?.EnqueueDialogue(new string[]{"Both door and window locked.", "Everything is secure."});
+                StartCoroutine(DialogueManager.Instance?.TriggerDialogue(new Tuple<string, float>[] {
+                    new Tuple<string, float>("Both door and window locked.", 1.5f),
+                    new Tuple<string, float>("Everything is secure.", 1.5f)
+                }));
             }
         }
     }
