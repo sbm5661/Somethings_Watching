@@ -8,8 +8,22 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private List<string> dialogueQueue = new List<string>();
     [SerializeField] private TextMeshProUGUI dialogueText;
 
+    public static DialogueManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
     private void Start()
     {
+        dialogueText.text = string.Empty;
         if (dialogueQueue.Count > 0)
         {
             Debug.Log($"Starting dialogue");
@@ -57,6 +71,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogueQueue.Count > 0)
         {
             dialogueText.text = dialogueQueue[0];
+            dialogueText.alpha = 0f;
             dialogueText.DOFade(1f, 0.5f).OnComplete(() =>
             {
                 dialogueText.DOFade(0f, 1.5f).SetDelay(2f).OnComplete(() =>

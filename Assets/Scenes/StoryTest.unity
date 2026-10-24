@@ -1527,7 +1527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73677c28c4e4cfc44ac1315a99fd47d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoryManager
-  storyFlags: []
+  storyFlags:
+  - door locked
+  - window locked
 --- !u!1 &1682711240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,11 +1834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a20e1f5d1f7dc4b8600f8614672384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  dialogueQueue:
-  - Hello
-  - This is dialogue
-  - Something's Watching
-  - Goodbye
+  dialogueQueue: []
   dialogueText: {fileID: 1938140068}
 --- !u!114 &1938140068
 MonoBehaviour:

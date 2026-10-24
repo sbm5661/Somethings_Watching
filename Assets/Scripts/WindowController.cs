@@ -42,6 +42,7 @@ public class WindowController : MonoBehaviour
         }
 
         isLocked = !isLocked;
+        StoryManager.Instance?.SetStoryFlag("window locked", isLocked);
         Debug.Log(isLocked ? "Window locked" : "Window unlocked");
     }
 
