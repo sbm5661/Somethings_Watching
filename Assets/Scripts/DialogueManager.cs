@@ -2,11 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using System;
+using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private List<string> dialogueQueue = new List<string>();
+    [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+
+    public Action onDialogueFinished;
 
     public static DialogueManager Instance { get; private set; }
 
@@ -24,65 +28,21 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         dialogueText.text = string.Empty;
-        if (dialogueQueue.Count > 0)
-        {
-            Debug.Log($"Starting dialogue");
-            TriggerDialogue();
-        }
-        else
-        {
-            Debug.Log("No dialogue to start.");
-        }
+        dialoguePanel.SetActive(false);
     }
 
-    public void EnqueueDialogue(string dialogue)
+    public IEnumerator TriggerDialogue(Tuple<string, float>[] dialogueLines)
     {
-        dialogueQueue.Add(dialogue);
-        Debug.Log($"Dialogue added: {dialogue}");
-        TriggerDialogue();
-    }
-    public void EnqueueDialogue(string[] dialogues)
-    {
-        foreach (string dialogue in dialogues)
-        {
-            dialogueQueue.Add(dialogue);
-            Debug.Log($"Dialogue added: {dialogue}");
-        }
-        TriggerDialogue();
-    }
+        dialoguePanel.SetActive(true);
 
-    public void DequeueDialogue()
-    {
-        if (dialogueQueue.Count > 0)
+        for (int i = 0; i < dialogueLines.Length; i++)
         {
-            string dialogue = dialogueQueue[0];
-            dialogueQueue.RemoveAt(0);
-            Debug.Log($"Dialogue removed: {dialogue}");
-            TriggerDialogue();
+            dialogueText.text = dialogueLines[i].Item1;
+            yield return new WaitForSeconds(dialogueLines[i].Item2);
         }
-        else
-        {
-            Debug.Log("No dialogue to remove.");
-        }
-    }
-
-    private void TriggerDialogue()
-    {
-        if (dialogueQueue.Count > 0)
-        {
-            dialogueText.text = dialogueQueue[0];
-            dialogueText.alpha = 0f;
-            dialogueText.DOFade(1f, 0.5f).OnComplete(() =>
-            {
-                dialogueText.DOFade(0f, 1.5f).SetDelay(2f).OnComplete(() =>
-                {
-                    DequeueDialogue();
-                });
-            });
-        }
-        else
-        {
-            return;
-        }
+        dialogueText.text = string.Empty;
+        dialoguePanel.SetActive(false);
+        onDialogueFinished?.Invoke();
+        yield return new WaitForEndOfFrame();
     }
 }
