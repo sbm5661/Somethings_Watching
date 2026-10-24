@@ -27,6 +27,7 @@ public class DoorLock : MonoBehaviour
     public void ToggleLock()
     {
         isLocked = !isLocked;
+        StoryManager.Instance?.SetStoryFlag("door locked", isLocked);
         UpdateVisual();
         Debug.Log(isLocked ? "Door locked" : "Door unlocked");
     }

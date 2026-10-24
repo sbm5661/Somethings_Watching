@@ -34,7 +34,7 @@ public class StoryManager : MonoBehaviour
         if (storyFlagsDict.ContainsKey(flag))
         {
             storyFlagsDict[flag] = value;
-            TriggerStoryEvent();
+            TriggerStoryEvent(flag);
         }
         else
         {
@@ -42,19 +42,21 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    private void TriggerStoryEvent()
+    private void TriggerStoryEvent(string flag)
     {
-        switch(storyFlagsDict)
+        if (flag == "door locked" || flag == "window locked")
         {
-            case var flags when flags.ContainsKey("FlagA") && flags["FlagA"]:
-                Debug.Log("Event triggered for FlagA");
-                break;
-            case var flags when flags.ContainsKey("FlagB") && flags["FlagB"]:
-                Debug.Log("Event triggered for FlagB");
-                break;
-            default:
-                Debug.Log("No story event triggered.");
-                break;
+            if (isFlagSet("door locked") && isFlagSet("window locked"))
+            {
+                Debug.Log("Event triggered for both door and window locked");
+                DialogueManager.Instance?.EnqueueDialogue(new string[]{"Both door and window locked.", "Everything is secure."});
+            }
         }
     }
+
+    private bool isFlagSet(string flag)
+    {
+        return storyFlagsDict.ContainsKey(flag) && storyFlagsDict[flag];
+    }
+
 }
