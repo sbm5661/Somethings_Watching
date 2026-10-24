@@ -1,57 +1,36 @@
-using System;
+
 using UnityEngine;
 
 public class WindowController : MonoBehaviour
 {
-    [SerializeField] private Transform slidingPanel;
+    [Header("Blinds")]
+    [SerializeField] private GameObject blinds;
 
-    [SerializeField] private float openHeight = 0.7f;
-
-    [SerializeField] private bool isOpen = true;
+    [Header("State")]
     [SerializeField] private bool isLocked = false;
-    [SerializeField] StoryCondition lockedCondition;
+    [SerializeField] private StoryCondition lockedCondition;
 
-    private Vector3 closedPosition;
-
-    public bool IsOpen => isOpen;
     public bool IsLocked => isLocked;
 
     private void Awake()
     {
-        closedPosition = slidingPanel.localPosition;
-
         UpdateVisual();
     }
 
-    public void ToggleWindow()
+    public void ToggleBlinds()
     {
-        if (isLocked)
-        {
-            Debug.Log("Window is locked");
-            return;
-        }
-
-        isOpen = !isOpen;
-        UpdateVisual();
-    }
-
-    public void ToggleLock()
-    {
-        if (isOpen)
-        {
-            Debug.Log("Close the window first");
-            return;
-        }
-
         isLocked = !isLocked;
-        if (IsLocked) lockedCondition?.SetCondition(true);
-        else lockedCondition?.SetCondition(false);
-        Debug.Log(isLocked ? "Window locked" : "Window unlocked");
+
+        UpdateVisual();
+
+        lockedCondition?.SetCondition(isLocked);
+
+        Debug.Log(isLocked ? "Blinds closed" : "Blinds opened");
     }
 
     private void UpdateVisual()
     {
-        slidingPanel.localPosition =
-            closedPosition + (isOpen ? Vector3.up * openHeight : Vector3.zero);
+        if (blinds != null)
+            blinds.SetActive(isLocked);
     }
 }
