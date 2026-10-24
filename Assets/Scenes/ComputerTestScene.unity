@@ -187,6 +187,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &384411986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384411988}
+  - component: {fileID: 384411987}
+  m_Layer: 0
+  m_Name: ViewManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &384411987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384411986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9e5fb2b4628cd4d85b017c3e389c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ViewManager
+  initialView: {fileID: 418941439}
+  allViews:
+  - {fileID: 418941439}
+  - {fileID: 1304083114}
+  moveDuration: 1
+--- !u!4 &384411988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384411986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.68914, y: -0, z: -2.23567}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &418941438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418941440}
+  - component: {fileID: 418941439}
+  m_Layer: 0
+  m_Name: MainCamTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &418941439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418941438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d53aec88cb1f1646b3c128de950efd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionView
+  colliders: []
+--- !u!4 &418941440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418941438}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.31785902, z: -0, w: 0.948138}
+  m_LocalPosition: {x: -6.15, y: 0, z: -7.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665957177
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304083113}
+  - component: {fileID: 1304083114}
   m_Layer: 0
   m_Name: ComputerCamTransform
   m_TagString: Untagged
@@ -576,6 +671,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1436834666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304083114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304083112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d53aec88cb1f1646b3c128de950efd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionView
+  colliders:
+  - {fileID: 2119608096}
 --- !u!1 &1436834661
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,9 +718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dbce6b092debb45b18bc192b49d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  cameraPosition: {fileID: 1304083112}
-  computerInterface: {fileID: 2119608093}
-  computerCollider: {fileID: 1436834663}
 --- !u!65 &1436834663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -722,13 +828,13 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1436834662}
-        m_TargetAssemblyTypeName: Computer, Assembly-CSharp
-        m_MethodName: EnterComputer
-        m_Mode: 1
+      - m_Target: {fileID: 384411987}
+        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
+        m_MethodName: ChangeView
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1304083114}
+          m_ObjectArgumentAssemblyTypeName: InteractionView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -985,7 +1091,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1436834662}
         m_TargetAssemblyTypeName: Computer, Assembly-CSharp
-        m_MethodName: ExitComputer
+        m_MethodName: ScreenClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1060,7 +1166,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1270636020}
   - {fileID: 665957179}
+  - {fileID: 384411988}
   - {fileID: 1704462814}
+  - {fileID: 418941440}
   - {fileID: 1436834666}
   - {fileID: 990575090}
   - {fileID: 126412047}
