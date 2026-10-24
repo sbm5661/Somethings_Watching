@@ -1,16 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using DG.Tweening;
 using System;
 using System.Collections;
+using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private List<DialogueSequence> dialogueLines = new List<DialogueSequence>();
+    int currentdialogue=0;
 
-    public Action onDialogueFinished;
+    public UnityEvent onDialogueStarted;
+    public UnityEvent onDialogueFinished;
 
     public static DialogueManager Instance { get; private set; }
 
@@ -23,6 +26,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         Instance = this;
+
     }
 
     private void Start()
@@ -31,14 +35,22 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
-    public IEnumerator TriggerDialogue(Tuple<string, float>[] dialogueLines)
+    [ContextMenu("Execute Dialogue")]
+    public void ExecuteDialogue()
     {
+        StartCoroutine(TriggerDialogue(dialogueLines[currentdialogue].sequence));
+        currentdialogue += 1;
+    }
+
+    private IEnumerator TriggerDialogue(List<DialogueLine> dialogueLines)
+    {
+        Debug.Log("Dialogue triggered");
         dialoguePanel.SetActive(true);
 
-        for (int i = 0; i < dialogueLines.Length; i++)
+        for (int i = 0; i < dialogueLines.Count; i++)
         {
-            dialogueText.text = dialogueLines[i].Item1;
-            yield return new WaitForSeconds(dialogueLines[i].Item2);
+            dialogueText.text = dialogueLines[i].dialogue;
+            yield return new WaitForSeconds(dialogueLines[i].duration);
         }
         dialogueText.text = string.Empty;
         dialoguePanel.SetActive(false);
