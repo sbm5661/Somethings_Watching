@@ -79,7 +79,7 @@ public class ViewManager : MonoBehaviour
 
         Transform target = nextView.CameraTarget;
 
-        CameraController.Instance.MoveCamera(
+        CameraController.Instance.MoveCameraSmooth(
             target.position,
             target.eulerAngles,
             moveDuration
