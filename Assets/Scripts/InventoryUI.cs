@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -7,6 +8,16 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private Transform itemContainer;
     [SerializeField] private InventorySlotUI slotPrefab;
+
+    [System.Serializable]
+    public class ItemIconEntry
+    {
+        public string itemID;
+        public Sprite icon;
+    }
+
+    [Header("Item Icons")]
+    [SerializeField] private List<ItemIconEntry> itemIcons;
 
     private void Start()
     {
@@ -45,12 +56,6 @@ public class InventoryUI : MonoBehaviour
         inventoryPanel.SetActive(false);
     }
 
-    //private void OnEnable()
-    //{
-    //    if (InventoryManager.Instance != null)
-    //        InventoryManager.Instance.OnInventoryChanged += RefreshIfOpen;
-    //}
-
     private void OnDisable()
     {
         if (InventoryManager.Instance != null)
@@ -71,7 +76,7 @@ public class InventoryUI : MonoBehaviour
             InventorySlotUI slot =
                 Instantiate(slotPrefab, itemContainer);
 
-            slot.Setup(itemID, null);
+            slot.Setup(itemID, GetItemIcon(itemID));
             slot.SetInventoryUI(this);
         }
     }
@@ -88,5 +93,15 @@ public class InventoryUI : MonoBehaviour
         {
             slot.RefreshSelection();
         }
+    }
+    private Sprite GetItemIcon(string itemID)
+    {
+        foreach (ItemIconEntry entry in itemIcons)
+        {
+            if (entry.itemID == itemID)
+                return entry.icon;
+        }
+
+        return null;
     }
 }

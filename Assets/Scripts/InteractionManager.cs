@@ -8,6 +8,14 @@ public class InteractionManager : MonoBehaviour
 
     void Update()
     {
+        // Ignore world interactions while hovering over UI
+        if (EventSystem.current != null &&
+            EventSystem.current.IsPointerOverGameObject())
+        {
+            ClearHover();
+            return;
+        }
+
         HandleHover();
 
         if (!Input.GetMouseButtonDown(0))
@@ -23,6 +31,14 @@ public class InteractionManager : MonoBehaviour
             target?.Interact();
         }
     }
+    private void ClearHover()
+    {
+        if (currentHover != null)
+            currentHover.SetHighlighted(false);
+
+        currentHover = null;
+    }
+
 
     private void HandleHover()
     {
