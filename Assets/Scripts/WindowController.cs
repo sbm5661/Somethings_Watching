@@ -9,6 +9,7 @@ public class WindowController : MonoBehaviour
 
     [SerializeField] private bool isOpen = true;
     [SerializeField] private bool isLocked = false;
+    [SerializeField] StoryCondition lockedCondition;
 
     private Vector3 closedPosition;
 
@@ -43,7 +44,8 @@ public class WindowController : MonoBehaviour
         }
 
         isLocked = !isLocked;
-        StoryManager.Instance?.SetStoryFlag("window locked", isLocked);
+        if (IsLocked) lockedCondition.SetCondition(true);
+        else lockedCondition.SetCondition(false);
         Debug.Log(isLocked ? "Window locked" : "Window unlocked");
     }
 
