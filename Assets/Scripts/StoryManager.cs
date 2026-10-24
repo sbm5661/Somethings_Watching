@@ -1,65 +1,41 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StoryManager : MonoBehaviour
 {
-    [SerializeField] private List<string> storyFlags; // List of story flags to be set in the inspector
-    private Dictionary<string, bool> storyFlagsDict = new Dictionary<string, bool>();
-
     public static StoryManager Instance { get; private set; }
 
-    private void Awake()
+    [Header("Story Graph")]
+    [SerializeField] private List<StoryFlag> storyFlags = new List<StoryFlag>();
+
+    private StoryFlag currentFlag;
+
+    private void Start()
     {
-        if (Instance != null && Instance != this)
+        for(int i=0;i<storyFlags.Count;i++)
         {
-            Destroy(gameObject);
-            return;
+            if (i != storyFlags.Count - 1) storyFlags[i].nextFlag = storyFlags[i + 1];
+            else storyFlags[i].nextFlag = null;
         }
+        currentFlag = storyFlags[0];
+        Debug.Log($"Starting Flag: {currentFlag.flagName}");
+    }
 
-        Instance = this;
-
-        // Initialize the story flags dictionary with the flags from the inspector
-        foreach (string flag in storyFlags)
+    private void Update()
+    {
+        if (currentFlag != null)
         {
-            if (!storyFlagsDict.ContainsKey(flag))
+            if (currentFlag.conditionsMet())
             {
-                storyFlagsDict.Add(flag, false);
+                AdvanceCurrentFlag();
             }
         }
     }
 
-    public void SetStoryFlag(string flag, bool value)
+    private void AdvanceCurrentFlag()
     {
-        if (storyFlagsDict.ContainsKey(flag))
-        {
-            storyFlagsDict[flag] = value;
-            TriggerStoryEvent(flag);
-        }
-        else
-        {
-            Debug.LogWarning($"Story flag '{flag}' does not exist.");
-        }
+        currentFlag = currentFlag.nextFlag;
+        Debug.Log($"New Flag: {currentFlag.flagName}");
+        currentFlag.onFlagSet?.Invoke();
     }
-
-    private void TriggerStoryEvent(string flag)
-    {
-        if (flag == "door locked" || flag == "window locked")
-        {
-            if (isFlagSet("door locked") && isFlagSet("window locked"))
-            {
-                Debug.Log("Event triggered for both door and window locked");
-                StartCoroutine(DialogueManager.Instance?.TriggerDialogue(new Tuple<string, float>[] {
-                    new Tuple<string, float>("Both door and window locked.", 1.5f),
-                    new Tuple<string, float>("Everything is secure.", 1.5f)
-                }));
-            }
-        }
-    }
-
-    private bool isFlagSet(string flag)
-    {
-        return storyFlagsDict.ContainsKey(flag) && storyFlagsDict[flag];
-    }
-
 }
