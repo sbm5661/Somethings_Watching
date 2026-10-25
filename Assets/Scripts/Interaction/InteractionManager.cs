@@ -5,6 +5,12 @@ public class InteractionManager : MonoBehaviour
 {
     [SerializeField] private Camera activeCamera;
     private HoverHighlight currentHover;
+    bool canInteract = false;
+
+    public void enableInteraction()
+    {
+        canInteract = true;
+    }
     void Update()
     {
         // Ignore world interactions while hovering over UI
@@ -17,6 +23,7 @@ public class InteractionManager : MonoBehaviour
 
         HandleHover();
 
+        if (!canInteract) return;
         if (!Input.GetMouseButtonDown(0))
             return;
 
