@@ -1,9 +1,9 @@
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PickupItem : MonoBehaviour
 {
     [SerializeField] private string itemID;
-
+    [SerializeField] private UnityEvent onPickedUp;
     public void Pickup()
     {
         if (InventoryManager.Instance == null)
@@ -13,6 +13,7 @@ public class PickupItem : MonoBehaviour
 
         if (added)
         {
+            onPickedUp?.Invoke();
             gameObject.SetActive(false);
         }
     }
