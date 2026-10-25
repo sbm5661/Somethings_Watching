@@ -14,6 +14,7 @@ public class ViewManager : MonoBehaviour
     private Stack<InteractionView> viewHistory = new();
 
     private bool isMoving = false;
+    private bool isExitLocked = false;
 
     private void Start()
     {
@@ -30,11 +31,15 @@ public class ViewManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isExitLocked)
             GoBack();
-        }
     }
+    
+    public void SetExitLocked(bool locked)
+    {
+        isExitLocked = locked;
+    }
+
     public void ChangeView(InteractionView nextView)
     {
         if (isMoving || nextView == null ||

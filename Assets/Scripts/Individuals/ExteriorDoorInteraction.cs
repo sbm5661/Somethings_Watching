@@ -37,8 +37,10 @@ public class ExteriorDoorInteraction : MonoBehaviour
     public void TryExit()
     {
         // Final escape stage
-        if (StoryManager.Instance != null &&
-            StoryManager.Instance.IsCurrentFlag(finalEscapeFlag))
+        if ((StoryManager.Instance != null &&
+             StoryManager.Instance.IsCurrentFlag(finalEscapeFlag)) ||
+            (finalExitAttemptCondition != null &&
+             finalExitAttemptCondition.conditionMet))
         {
             bool hasTicket = InventoryManager.Instance != null &&
                              InventoryManager.Instance.HasItem(requiredItemID);
@@ -50,6 +52,9 @@ public class ExteriorDoorInteraction : MonoBehaviour
             }
 
             doorLock?.ShakeDoor();
+
+            // Unlock the red eye event after the first failed exit attempt
+            finalExitAttemptCondition?.SetCondition(true);
 
             // Prevent rapid clicking from skipping messages
             if (Time.time < nextMessageTime)
