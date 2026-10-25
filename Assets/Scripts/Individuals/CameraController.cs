@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
         previousRotation = transform.eulerAngles;
         if (fadeImg != null)
         {
-            fadeImg.DOFade(0f, 2f);
+            fadeImg.DOFade(0f, 2f).SetDelay(1);
         }
 
     }
