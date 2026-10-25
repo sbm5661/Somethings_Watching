@@ -6,6 +6,7 @@ public class StoryCondition : MonoBehaviour
 
     public void SetCondition(bool condition)
     {
+        Debug.Log($"Story condition {gameObject.name} set");
         conditionMet = condition;
     }
 }

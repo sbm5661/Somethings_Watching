@@ -38,8 +38,8 @@ public class DialogueManager : MonoBehaviour
     [ContextMenu("Execute Dialogue")]
     public void ExecuteDialogue()
     {
-        Debug.Log($"ExecuteDialogue called. Index: {currentdialogue}");
-        Debug.Log($"Playing dialogue: {dialogueLines[currentdialogue].dialogueTitle}");
+        //Debug.Log($"ExecuteDialogue called. Index: {currentdialogue}");
+        //Debug.Log($"Playing dialogue: {dialogueLines[currentdialogue].dialogueTitle}");
         StartCoroutine(TriggerDialogue(dialogueLines[currentdialogue].sequence));
         currentdialogue += 1;
     }
@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (index < 0 || index >= dialogueLines.Count)
         {
-            Debug.LogWarning($"Dialogue index {index} is invalid.");
+            //Debug.LogWarning($"Dialogue index {index} is invalid.");
             return;
         }
 
@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         onDialogueStarted?.Invoke();
 
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Dialogue triggered");
+        //Debug.Log("Dialogue triggered");
         dialoguePanel.SetActive(true);
 
         for (int i = 0; i < dialogueLines.Count; i++)

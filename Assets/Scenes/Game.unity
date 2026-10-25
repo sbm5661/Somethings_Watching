@@ -9953,6 +9953,12 @@ MonoBehaviour:
       duration: 1.5
     - dialogue: I think the breaker's somewhere outside.
       duration: 1.5
+  - dialogueTitle: Return Home
+    sequence:
+    - dialogue: That should do it.
+      duration: 1.5
+    - dialogue: I need to hurry.
+      duration: 1.5
   onDialogueStarted:
     m_PersistentCalls:
       m_Calls:
@@ -11132,6 +11138,7 @@ GameObject:
   - component: {fileID: 826107010}
   - component: {fileID: 826107011}
   - component: {fileID: 826107012}
+  - component: {fileID: 826107013}
   m_Layer: 0
   m_Name: OpenBox
   m_TagString: Untagged
@@ -11202,6 +11209,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &826107013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826107009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a171d77e2ff3841811ed2778d2ba66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverHighlight
+  highlightEffect: {fileID: 1080276223}
 --- !u!1 &832571176
 GameObject:
   m_ObjectHideFlags: 0
@@ -13376,26 +13396,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1990673883}
-          m_TargetAssemblyTypeName: StoryCondition, Assembly-CSharp
-          m_MethodName: SetCondition
-          m_Mode: 6
+    conditions:
+    - {fileID: 1990673883}
+  - flagName: Return Home
+    onFlagSet:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 774763464}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: ExecuteDialogue
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 1
+            m_BoolArgument: 0
           m_CallState: 2
-    conditions:
-    - {fileID: 1990673883}
-  - flagName: Return Home
-    onFlagSet:
-      m_PersistentCalls:
-        m_Calls: []
-    conditions:
-    - {fileID: 1990673883}
+    conditions: []
 --- !u!1 &1039673411
 GameObject:
   m_ObjectHideFlags: 0
@@ -24646,12 +24665,11 @@ MonoBehaviour:
   ConfirmButtonText: {fileID: 790360643}
   enabledColor: {r: 0, g: 0.6981132, b: 0.19163895, a: 1}
   disabledColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
-  alteredDocument: 'Communication channels may also be compromised. Several transmissions
-    have shown irregularities, though I have been unable to determine their source.
-    There is no conclusive evidence that our reports have been intercepted.;I have
-    also noticed inconsistencies in the surveillance records. Some logs appear to
-    describe events before they occur, while others contain details that should not
-    have been observable; The package has been delivered. '
+  alteredDocument: 'XXXXXXXXXX channels may also be XXXXXXXXX. Several XXXXXXX have
+    shown XXXXXXX, though I have been XXXXXX to XXXXXXX their XXXXXX. XXXXX is XXX
+    XXXXXXXX XXXXXXX that our XXXXX have been XXXXXXXX.;I have also noticed XXXXXXXXXX
+    in the surveillance XXXXXX. Some XXXX appear to describe XXXXXX, while others
+    contain XXXXX that should not have XXXXXXXXXX; Your package has been delivered. '
 --- !u!1001 &2056520636
 PrefabInstance:
   m_ObjectHideFlags: 0

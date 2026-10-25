@@ -42,7 +42,7 @@ public class ComputerDocument : MonoBehaviour
 
     public void NextPage()
     {
-        Debug.Log($"Next clicked! Page: {currentPage}, Total: {pageTexts.Count}");
+        //Debug.Log($"Next clicked! Page: {currentPage}, Total: {pageTexts.Count}");
         if (currentPage >= pageTexts.Count - 1) return;
         currentPage += 1;
         documentText.text = pageTexts[currentPage];
@@ -50,7 +50,7 @@ public class ComputerDocument : MonoBehaviour
     }
     public void BackPage()
     {
-        Debug.Log($"Back clicked! Page: {currentPage}, Total: {pageTexts.Count}");
+        //Debug.Log($"Back clicked! Page: {currentPage}, Total: {pageTexts.Count}");
         if (currentPage <= 0) return;
         currentPage -= 1;
         documentText.text = pageTexts[currentPage];
@@ -67,13 +67,13 @@ public class ComputerDocument : MonoBehaviour
             showingAlteredDocument = false;
             canConfirm = false;
 
-            Debug.Log("Altered document confirmed");
+            //Debug.Log("Altered document confirmed");
             onDocumentConfirmed?.Invoke();
             return;
         }
 
         currentEntry++;
-        Debug.Log("Confirmed document");
+        //Debug.Log("Confirmed document");
 
         if (currentEntry < documentEntries.Count)
         {
@@ -83,7 +83,7 @@ public class ComputerDocument : MonoBehaviour
         else
         {
             // All documents have been reviewed
-            Debug.Log("All documents confirmed!");
+            //Debug.Log("All documents confirmed!");
             onDocumentConfirmed?.Invoke();
         }
     }

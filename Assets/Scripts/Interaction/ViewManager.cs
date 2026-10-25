@@ -46,7 +46,6 @@ public class ViewManager : MonoBehaviour
         if (currentView != null)
             viewHistory.Push(currentView);
 
-        Debug.Log($"Moving to {nextView.transform.name}");
         StartCoroutine(TransitionTo(nextView));
     }
 
@@ -79,7 +78,7 @@ public class ViewManager : MonoBehaviour
         SetAllInteractions(false);
 
         Transform target = nextView.CameraTarget;
-        bool overrideResult = overrideTransision ? !nextView.isSmooth : nextView.isSmooth;
+        bool overrideResult = overrideTransision ? false : nextView.isSmooth;
         if (overrideResult)
         {
             CameraController.Instance.MoveCameraSmooth(

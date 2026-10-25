@@ -25,7 +25,7 @@ public class PowerOutageController : MonoBehaviour
         if (computerCanvas != null)
             computerCanvas.SetActive(false);
 
-        Debug.Log("Power outage triggered");
+        //Debug.Log("Power outage triggered");
     }
     public void RestorePower()
     {
@@ -38,7 +38,7 @@ public class PowerOutageController : MonoBehaviour
         if (computerCanvas != null)
             computerCanvas.SetActive(true);
 
-        Debug.Log("Power restored");
+        //Debug.Log("Power restored");
     }
     private IEnumerator FlickerAndOutage()
     {
