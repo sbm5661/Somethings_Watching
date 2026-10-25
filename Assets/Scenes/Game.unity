@@ -2635,6 +2635,50 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &354910996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 354910997}
+  - component: {fileID: 354910998}
+  m_Layer: 0
+  m_Name: TeethInspectedCondition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &354910997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354910996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1591768883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &354910998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354910996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c38917b2eae154fa81d737a93363f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryCondition
 --- !u!1 &360928340
 GameObject:
   m_ObjectHideFlags: 0
@@ -9029,6 +9073,12 @@ MonoBehaviour:
       duration: 1.5
     - dialogue: Really makes you think...
       duration: 1.5
+  - dialogueTitle: Find teeth box
+    sequence:
+    - dialogue: ...Teeth?
+      duration: 1.5
+    - dialogue: Is this someone's idea of a threat?
+      duration: 1.5
   onDialogueStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -9949,7 +9999,7 @@ Transform:
   m_GameObject: {fileID: 826107009}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.099, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12003,7 +12053,7 @@ MonoBehaviour:
           m_CallState: 2
     conditions:
     - {fileID: 917146098}
-  - flagName: End
+  - flagName: Moving to ally
     onFlagSet:
       m_PersistentCalls:
         m_Calls:
@@ -12043,13 +12093,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-    conditions: []
-  - flagName: Disk Insert
+    conditions:
+    - {fileID: 354910998}
+  - flagName: Teeth Inspect
     onFlagSet:
       m_PersistentCalls:
-        m_Calls: []
-    conditions:
-    - {fileID: 1039673413}
+        m_Calls:
+        - m_Target: {fileID: 774763464}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: ExecuteDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    conditions: []
 --- !u!1 &1039673411
 GameObject:
   m_ObjectHideFlags: 0
@@ -16982,6 +17044,7 @@ Transform:
   - {fileID: 1352948251}
   - {fileID: 1039673412}
   - {fileID: 917146099}
+  - {fileID: 354910997}
   m_Father: {fileID: 1003251528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1595284290
@@ -20185,7 +20248,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PackageController
   onPackageOpened:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 354910998}
+        m_TargetAssemblyTypeName: StoryCondition, Assembly-CSharp
+        m_MethodName: SetCondition
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &1816793581
 Transform:
   m_ObjectHideFlags: 0

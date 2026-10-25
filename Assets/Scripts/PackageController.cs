@@ -17,6 +17,7 @@ public class PackageController : MonoBehaviour
 
         isOpened = true;
 
+
         //closedBox.SetActive(false);
         //openedBox.SetActive(true);
 

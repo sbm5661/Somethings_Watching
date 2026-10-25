@@ -38,8 +38,21 @@ public class DialogueManager : MonoBehaviour
     [ContextMenu("Execute Dialogue")]
     public void ExecuteDialogue()
     {
+        Debug.Log($"ExecuteDialogue called. Index: {currentdialogue}");
+        Debug.Log($"Playing dialogue: {dialogueLines[currentdialogue].dialogueTitle}");
         StartCoroutine(TriggerDialogue(dialogueLines[currentdialogue].sequence));
         currentdialogue += 1;
+    }
+
+    public void ExecuteDialogueAt(int index)
+    {
+        if (index < 0 || index >= dialogueLines.Count)
+        {
+            Debug.LogWarning($"Dialogue index {index} is invalid.");
+            return;
+        }
+
+        StartCoroutine(TriggerDialogue(dialogueLines[index].sequence));
     }
 
     private IEnumerator TriggerDialogue(List<DialogueLine> dialogueLines)
