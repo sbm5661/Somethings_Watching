@@ -13,7 +13,7 @@ public class CreditsManager : MonoBehaviour
 
     IEnumerator Start()
     {
-        creditsPanel.transform.DOShakePosition(duration: (creditDuration*(creditsContent.Length+2))+1, strength: 5f, fadeOut: false);
+        creditsPanel.transform.DOShakePosition(duration: (creditDuration * (creditsContent.Length + 2)) + 1, strength: 5f, fadeOut: false).SetEase(Ease.Flash);
         yield return new WaitForSeconds(creditDuration+1);
         foreach (string credit in creditsContent)
         {

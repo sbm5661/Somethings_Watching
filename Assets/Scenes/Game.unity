@@ -2950,7 +2950,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -500, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282207634
 MonoBehaviour:
@@ -2972,7 +2972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello There
+  m_text: I should lock the door and close the blinds before doing anything else.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b77bab79b15dfc645ae671c88c2f918c, type: 2}
   m_sharedMaterial: {fileID: 6724405769517939118, guid: b77bab79b15dfc645ae671c88c2f918c, type: 2}
@@ -10651,7 +10651,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774763464
 MonoBehaviour:
@@ -27591,7 +27591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2100256831
 RectTransform:
   m_ObjectHideFlags: 0
