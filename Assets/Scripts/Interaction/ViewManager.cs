@@ -77,6 +77,17 @@ public class ViewManager : MonoBehaviour
     }
     private IEnumerator TransitionTo(InteractionView nextView, bool overrideTransision = false)
     {
+        isMoving = true;
+        SetAllInteractions(false);
+
+        bool goingToPeephole = System.Array.Exists(
+            peepholeViews,
+            view => view == nextView
+        );
+
+        if (peepholeCanvas != null && goingToPeephole)
+            peepholeCanvas.SetActive(true);
+
         if (nextView.CameraTarget == null ||
             CameraController.Instance == null)
         {
