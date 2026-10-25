@@ -17,17 +17,17 @@ public class DoorLock : MonoBehaviour
 
     public void ToggleLock()
     {
-        isLocked = !isLocked;
         if (isLocked)
-        {
-            lockedCondition?.SetCondition(true);
-        }
-        else
-        {
-            lockedCondition?.SetCondition(false);
-        }
+            return;
 
-        Debug.Log(isLocked ? "Door locked" : "Door unlocked");
+        if (StoryManager.Instance == null ||
+            !StoryManager.Instance.IsCurrentFlag("House Secure"))
+            return;
+
+        isLocked = true;
+        lockedCondition?.SetCondition(true);
+
+        Debug.Log("Door locked");
     }
 
 }

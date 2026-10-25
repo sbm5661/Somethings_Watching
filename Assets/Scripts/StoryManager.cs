@@ -51,4 +51,10 @@ public class StoryManager : MonoBehaviour
         Debug.Log($"New Flag: {currentFlag.flagName}");
         currentFlag.onFlagSet?.Invoke();
     }
+
+    public bool IsCurrentFlag(string flagName)
+    {
+        return currentFlag != null &&
+               currentFlag.flagName == flagName;
+    }
 }

@@ -1,3 +1,4 @@
+
 using DG.Tweening;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ public class WindowController : MonoBehaviour
 {
     [Header("Blinds")]
     [SerializeField] private Transform blinds;
-    [SerializeField] private float openHeight = 1f;
+    [SerializeField] private float openHeight = -1f;
     [SerializeField] private float moveDuration = 0.6f;
 
     [Header("State")]
@@ -19,21 +20,28 @@ public class WindowController : MonoBehaviour
 
     private void Awake()
     {
-        // Save world-space positions
-        closedPosition = blinds.position;
-        openPosition = closedPosition + Vector3.up * openHeight;
+        // Blinds start in the open (raised) position
+        openPosition = blinds.position;
+        closedPosition = openPosition + Vector3.up * openHeight;
     }
 
     public void ToggleBlinds()
     {
-        isLocked = !isLocked;
+        if (StoryManager.Instance == null ||
+            !StoryManager.Instance.IsCurrentFlag("House Secure"))
+            return;
 
-        // Move smoothly in world space
-        blinds.DOMove(
-            isLocked ? closedPosition : openPosition,
-            moveDuration
-        );
+        // Already closed; prevent reopening for now
+        if (isLocked)
+            return;
 
-        lockedCondition?.SetCondition(isLocked);
+        isLocked = true;
+
+        // Stop any previous movement before starting a new one
+        blinds.DOKill();
+
+        blinds.DOMove(closedPosition, moveDuration);
+
+        lockedCondition?.SetCondition(true);
     }
 }

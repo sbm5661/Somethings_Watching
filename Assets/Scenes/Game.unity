@@ -2996,8 +2996,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9512,17 +9512,14 @@ MonoBehaviour:
     sequence:
     - dialogue: I finally made it home.
       duration: 1.5
-    - dialogue: I need to lock the door
-      duration: 1.5
-  - dialogueTitle: Window Locked
+    - dialogue: I should lock the door and close the blinds before doing anything
+        else.
+      duration: 3
+  - dialogueTitle: House Secured
     sequence:
-    - dialogue: Good. the door is locked.
+    - dialogue: That should be enough for now.
       duration: 1.5
-    - dialogue: Now I need to lock the window.
-      duration: 1.5
-  - dialogueTitle: First Upload
-    sequence:
-    - dialogue: Nice. Now I can upload my findings.
+    - dialogue: Now I can upload my findings.
       duration: 1.5
   - dialogueTitle: Damn Computers
     sequence:
@@ -12309,23 +12306,6 @@ MonoBehaviour:
           m_CallState: 2
     conditions:
     - {fileID: 693634572}
-  - flagName: Window Secure
-    onFlagSet:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 774763464}
-          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-          m_MethodName: ExecuteDialogue
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    conditions:
     - {fileID: 1352948252}
   - flagName: Upload 8 Percent
     onFlagSet:
