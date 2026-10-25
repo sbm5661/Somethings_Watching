@@ -22,7 +22,9 @@ public class DoorLock : MonoBehaviour
 
         if (StoryManager.Instance == null ||
             !StoryManager.Instance.IsCurrentFlag("House Secure"))
+        {
             return;
+        }
 
         isLocked = true;
         lockedCondition?.SetCondition(true);
