@@ -12,6 +12,7 @@ public class WindowController : MonoBehaviour
     [Header("State")]
     [SerializeField] private bool isLocked = false;
     [SerializeField] private StoryCondition lockedCondition;
+    [SerializeField] private StoryCondition glintCondition;
 
     private Vector3 closedPosition;
     private Vector3 openPosition;
@@ -34,9 +35,15 @@ public class WindowController : MonoBehaviour
             return;
         }
 
-        if (StoryManager.Instance == null ||
-            !StoryManager.Instance.IsCurrentFlag("House Secure"))
+        if (StoryManager.Instance == null) return;
+        if (StoryManager.Instance.IsCurrentFlag("Window Glint"))
+        {
+            blinds.DOKill();
+            blinds.DOMove(openPosition, moveDuration);
+            glintCondition.SetCondition(true);
             return;
+        }
+        if (!StoryManager.Instance.IsCurrentFlag("House Secure"))return;
 
         isLocked = true;
 
@@ -46,5 +53,10 @@ public class WindowController : MonoBehaviour
         blinds.DOMove(closedPosition, moveDuration);
 
         lockedCondition?.SetCondition(true);
+    }
+
+    public void Unlock()
+    {
+        isLocked = false;
     }
 }
