@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionView
   colliders:
   - {fileID: 908410041}
+  isSmooth: 1
 --- !u!1 &358667723
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,9 +361,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db91a37533abf494f9b30e4ca8514a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindowController
-  slidingPanel: {fileID: 1152771122}
+  blinds: {fileID: 0}
   openHeight: 0.7
-  isOpen: 1
+  moveDuration: 0.6
   isLocked: 0
   lockedCondition: {fileID: 1042046991}
 --- !u!1 &455016740
@@ -693,6 +694,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupItem
   itemID: item1
+  onPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &668390167
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1130,6 +1134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupItem
   itemID: Disk
+  onPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &782495586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1530,9 +1537,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorLock
   isLocked: 0
-  lockHandle: {fileID: 908410040}
-  unlockedAngle: 0
-  lockedAngle: 90
   lockedCondition: {fileID: 1042046991}
 --- !u!114 &908410045
 MonoBehaviour:
@@ -1892,6 +1896,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dbce6b092debb45b18bc192b49d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  progressBar: {fileID: 0}
+  UploadingText: {fileID: 0}
+  uploadCondition: {fileID: 0}
 --- !u!65 &1051181374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2401,6 +2408,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 998464079}
   - {fileID: 1664626436}
+  isSmooth: 1
 --- !u!4 &1239694319
 Transform:
   m_ObjectHideFlags: 0
@@ -2467,15 +2475,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10943389, g: 0.10943389, b: 0.10943389, a: 0.67058825}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9137255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5b3290bb4ca938148a2003b8ad0dec84, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3086,6 +3094,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 1152771123}
   - {fileID: 2004305411}
+  isSmooth: 1
 --- !u!1 &1700857309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,6 +3145,7 @@ MonoBehaviour:
   - {fileID: 772488079}
   - {fileID: 782495580}
   - {fileID: 1051675421}
+  isSmooth: 1
 --- !u!1 &1727275471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,6 +3679,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupItem
   itemID: item2
+  onPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &2104154344
 BoxCollider:
   m_ObjectHideFlags: 0

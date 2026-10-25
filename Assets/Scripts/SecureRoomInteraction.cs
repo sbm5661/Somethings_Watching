@@ -16,7 +16,7 @@ public class SecureRoomInteraction : MonoBehaviour
     {
         if (!doorLocked.conditionMet || !windowLocked.conditionMet)
         {
-            hintUI.ShowHint("I should secure the place first.");
+            hintUI.ShowHint("You should secure the place first.");
             return;
         }
 
