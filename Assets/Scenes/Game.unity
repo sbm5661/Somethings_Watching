@@ -6167,6 +6167,8 @@ GameObject:
   - component: {fileID: 609612836}
   - component: {fileID: 609612837}
   - component: {fileID: 609612838}
+  - component: {fileID: 609612839}
+  - component: {fileID: 609612840}
   m_Layer: 0
   m_Name: Computer
   m_TagString: Untagged
@@ -6203,6 +6205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dbce6b092debb45b18bc192b49d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  progressBar: {fileID: 726459694}
+  UploadingText: {fileID: 832571178}
 --- !u!114 &609612838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6230,6 +6234,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &609612839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609612835}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3, y: 0.25, z: 0.1819443}
+  m_Center: {x: 0, y: 0.125, z: -0.034027856}
+--- !u!114 &609612840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609612835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a171d77e2ff3841811ed2778d2ba66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverHighlight
+  highlightEffect: {fileID: 999283214}
 --- !u!1 &618428438
 GameObject:
   m_ObjectHideFlags: 0
@@ -8297,7 +8335,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -10273,12 +10311,12 @@ GameObject:
   - component: {fileID: 832571179}
   - component: {fileID: 832571178}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: UploadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &832571177
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12019,6 +12057,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984820516}
   m_CullTransparentMesh: 1
+--- !u!1 &999283210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4238715221626264924, guid: a68d5b2d858070f4cb919a0bcb690ee4, type: 3}
+  m_PrefabInstance: {fileID: 2056520636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &999283214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999283210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1003251527
 GameObject:
   m_ObjectHideFlags: 0
@@ -12392,7 +12453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionView
   colliders:
-  - {fileID: 0}
+  - {fileID: 1682536042}
 --- !u!1 &1162354708
 GameObject:
   m_ObjectHideFlags: 0
@@ -19250,7 +19311,6 @@ GameObject:
   - component: {fileID: 1682536044}
   - component: {fileID: 1682536043}
   - component: {fileID: 1682536042}
-  - component: {fileID: 1682536041}
   - component: {fileID: 1682536040}
   m_Layer: 5
   m_Name: UploadButton
@@ -19294,34 +19354,7 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Computer, Assembly-CSharp
-        m_MethodName: ScreenClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1682536041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682536038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d600c48802f1cba409902ae7ca612d97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GenericInteractable
-  onInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 609612837}
         m_TargetAssemblyTypeName: Computer, Assembly-CSharp
         m_MethodName: ScreenClicked
         m_Mode: 1
@@ -19352,7 +19385,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.1, z: -0.05}
+  m_Size: {x: 0.4, y: 0.1, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1682536043
 MonoBehaviour:
@@ -24013,7 +24046,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4238715221626264924, guid: a68d5b2d858070f4cb919a0bcb690ee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 999283214}
   m_SourcePrefab: {fileID: 100100000, guid: a68d5b2d858070f4cb919a0bcb690ee4, type: 3}
 --- !u!4 &2056520637 stripped
 Transform:
