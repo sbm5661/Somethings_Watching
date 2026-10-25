@@ -22,7 +22,7 @@ public class StoryManager : MonoBehaviour
 
     }
 
-    private void Start()
+    public void BeginStory()
     {
         for(int i=0;i<storyFlags.Count;i++)
         {
