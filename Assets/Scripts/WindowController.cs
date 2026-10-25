@@ -27,12 +27,15 @@ public class WindowController : MonoBehaviour
 
     public void ToggleBlinds()
     {
-        if (StoryManager.Instance == null ||
-            !StoryManager.Instance.IsCurrentFlag("House Secure"))
-            return;
-
         // Already closed; prevent reopening for now
         if (isLocked)
+        {
+            transform.DOShakePosition(duration: 0.5f, strength: new Vector3(0f, 0.05f, 0.05f), vibrato: 20, randomness: 90f);
+            return;
+        }
+
+        if (StoryManager.Instance == null ||
+            !StoryManager.Instance.IsCurrentFlag("House Secure"))
             return;
 
         isLocked = true;
