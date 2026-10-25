@@ -14,11 +14,6 @@ public class SecureRoomInteraction : MonoBehaviour
 
     public void TryEnterComputer()
     {
-        if (StoryManager.Instance.IsCurrentFlag("Leaving"))
-        {
-            // Code to check for plane ticket 
-            return;
-        }
         if (!doorLocked.conditionMet || !windowLocked.conditionMet)
         {
             hintUI.ShowHint("You should secure the place first.");

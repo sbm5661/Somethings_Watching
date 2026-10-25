@@ -3063,7 +3063,7 @@ GameObject:
   - component: {fileID: 295988610}
   - component: {fileID: 295988611}
   m_Layer: 0
-  m_Name: PassportCondition
+  m_Name: FinalExitAttemptCondition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13869,6 +13869,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1816793579}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     conditions:
     - {fileID: 448106028}
   - flagName: Power Restored
@@ -18962,6 +18974,7 @@ GameObject:
   - component: {fileID: 1494276545}
   - component: {fileID: 1494276544}
   - component: {fileID: 1494276550}
+  - component: {fileID: 1494276551}
   m_Layer: 0
   m_Name: DoorknobMove
   m_TagString: Untagged
@@ -19135,7 +19148,26 @@ MonoBehaviour:
   viewManager: {fileID: 2090248491}
   outsideView: {fileID: 1277352803}
   powerOutageCondition: {fileID: 873408961}
+  finalExitAttemptCondition: {fileID: 295988611}
+  finalEscapeFlag: Leaving
+  requiredItemID: PlaneTicket
   hintUI: {fileID: 202617506}
+  doorLock: {fileID: 1494276551}
+  messageInterval: 3
+--- !u!114 &1494276551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494276542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71109af9910377141ac668e3eb16612a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorLock
+  isLocked: 0
+  lockedCondition: {fileID: 0}
 --- !u!43 &1502650225
 Mesh:
   m_ObjectHideFlags: 0
