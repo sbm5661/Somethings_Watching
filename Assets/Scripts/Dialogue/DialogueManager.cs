@@ -66,7 +66,7 @@ public class DialogueManager : MonoBehaviour
 
         for (int i = 0; i < dialogueLines.Count; i++)
         {
-            dialoguePanel.transform.DOShakePosition(duration: dialogueLines[i].duration, strength: 5f, fadeOut: false);
+            dialoguePanel.transform.DOShakePosition(duration: dialogueLines[i].duration, strength: 5f, fadeOut: false).SetEase(Ease.Flash);
             dialogueText.text = dialogueLines[i].dialogue;
             yield return new WaitForSeconds(dialogueLines[i].duration);
         }
