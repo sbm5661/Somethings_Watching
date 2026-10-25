@@ -8,7 +8,19 @@ public class StoryManager : MonoBehaviour
     [Header("Story Graph")]
     [SerializeField] private List<StoryFlag> storyFlags = new List<StoryFlag>();
 
-    private StoryFlag currentFlag;
+    public StoryFlag currentFlag { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+    }
 
     private void Start()
     {
