@@ -587,8 +587,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283498240
+  m_fontColor: {r: 0, g: 1, b: 0.31401592, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -605,8 +605,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.03
-  m_fontSizeBase: 0.03
+  m_fontSize: 0.027
+  m_fontSizeBase: 0.027
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1081,18 +1081,6 @@ MonoBehaviour:
   onDiskInserted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132828511}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1484619987}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1105,10 +1093,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2055817108}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2055817110}
+        m_TargetAssemblyTypeName: ComputerDocument, Assembly-CSharp
+        m_MethodName: DisplayEntry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1039673411}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 202617501}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: CloseInventory
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2289,8 +2313,8 @@ RectTransform:
   m_GameObject: {fileID: 259967041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0019999444}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2118920730}
   m_Father: {fileID: 2055817109}
@@ -2361,7 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.20935917, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -6323,6 +6347,7 @@ MonoBehaviour:
   progressBar: {fileID: 726459694}
   UploadingText: {fileID: 832571178}
   uploadCondition: {fileID: 917146098}
+  upload50Condition: {fileID: 873408961}
 --- !u!1 &618428438
 GameObject:
   m_ObjectHideFlags: 0
@@ -9321,7 +9346,7 @@ MonoBehaviour:
   dialogueLines:
   - dialogueTitle: Starting Point, lock door
     sequence:
-    - dialogue: I finally made it home.
+    - dialogue: I finally made it back.
       duration: 1.5
     - dialogue: I should lock the door and close the blinds before doing anything
         else.
@@ -9334,11 +9359,11 @@ MonoBehaviour:
       duration: 1.5
     - dialogue: I need the disk first.
       duration: 1.5
-  - dialogueTitle: Damn Computers
+  - dialogueTitle: Knock
     sequence:
-    - dialogue: Damn computers
+    - dialogue: Was that a knock?
       duration: 1.5
-    - dialogue: Really makes you think...
+    - dialogue: It was comming from outside.
       duration: 1.5
   - dialogueTitle: Find teeth box
     sequence:
@@ -9348,7 +9373,19 @@ MonoBehaviour:
       duration: 1.5
   onDialogueStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 202617501}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: CloseInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDialogueFinished:
     m_PersistentCalls:
       m_Calls: []
@@ -9550,8 +9587,8 @@ RectTransform:
   m_GameObject: {fileID: 806881977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0019999444}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1686570544}
   m_Father: {fileID: 2055817109}
@@ -9622,7 +9659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.20935917, b: 1, a: 1}
+  m_Color: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -11492,6 +11529,50 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1, y: 2.1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &873408959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873408960}
+  - component: {fileID: 873408961}
+  m_Layer: 0
+  m_Name: Upload50Condition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &873408960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873408959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1591768883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &873408961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873408959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c38917b2eae154fa81d737a93363f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryCondition
 --- !u!1 &888662206
 GameObject:
   m_ObjectHideFlags: 0
@@ -11504,6 +11585,7 @@ GameObject:
   - component: {fileID: 888662210}
   - component: {fileID: 888662209}
   - component: {fileID: 888662208}
+  - component: {fileID: 888662211}
   m_Layer: 0
   m_Name: DoorHitbox
   m_TagString: Untagged
@@ -11554,13 +11636,13 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2090248491}
-        m_TargetAssemblyTypeName: ViewManager, Assembly-CSharp
-        m_MethodName: ChangeView
-        m_Mode: 2
+      - m_Target: {fileID: 888662211}
+        m_TargetAssemblyTypeName: ExteriorDoorInteraction, Assembly-CSharp
+        m_MethodName: TryExit
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 710193874}
-          m_ObjectArgumentAssemblyTypeName: InteractionView, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11587,6 +11669,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1, y: 2.1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &888662211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888662206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 672a6d03d8f125544815901b2b1bc1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExteriorDoorInteraction
+  viewManager: {fileID: 2090248491}
+  outsideView: {fileID: 1277352803}
+  powerOutageCondition: {fileID: 873408961}
+  hintUI: {fileID: 202617506}
 --- !u!1 &904041339
 GameObject:
   m_ObjectHideFlags: 0
@@ -12587,9 +12685,9 @@ MonoBehaviour:
     onFlagSet:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 774763464}
-          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-          m_MethodName: ExecuteDialogue
+        - m_Target: {fileID: 1052493982}
+          m_TargetAssemblyTypeName: DoorKnockEvent, Assembly-CSharp
+          m_MethodName: TriggerKnock
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12597,7 +12695,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 1293937895}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -12625,7 +12723,7 @@ MonoBehaviour:
           m_CallState: 2
     conditions:
     - {fileID: 354910998}
-  - flagName: Teeth Inspect
+  - flagName: After Teeth Inspect
     onFlagSet:
       m_PersistentCalls:
         m_Calls:
@@ -12641,7 +12739,44 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    conditions: []
+        - m_Target: {fileID: 132828511}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2055817108}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 2055817110}
+          m_TargetAssemblyTypeName: ComputerDocument, Assembly-CSharp
+          m_MethodName: DisplayAlteredEntry
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    conditions:
+    - {fileID: 873408961}
 --- !u!1 &1039673411
 GameObject:
   m_ObjectHideFlags: 0
@@ -12695,6 +12830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052493981}
+  - component: {fileID: 1052493982}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -12719,6 +12855,21 @@ Transform:
   - {fileID: 849401996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &1052493982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052493980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e17ac0d87ba12408f33d1ac5450563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorKnockEvent
+  knockAudio: {fileID: 1739996153}
+  initialDelay: 0
+  dialogueDelay: 2
 --- !u!1 &1059035749
 GameObject:
   m_ObjectHideFlags: 0
@@ -12928,12 +13079,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionView
   colliders:
-  - {fileID: 1682536042}
   - {fileID: 223783409}
   - {fileID: 494262706}
+  - {fileID: 1162354712}
   - {fileID: 806881980}
   - {fileID: 259967044}
   - {fileID: 1457392422}
+  - {fileID: 1682536042}
   isSmooth: 1
 --- !u!1 &1162354708
 GameObject:
@@ -12946,6 +13098,8 @@ GameObject:
   - component: {fileID: 1162354709}
   - component: {fileID: 1162354711}
   - component: {fileID: 1162354710}
+  - component: {fileID: 1162354712}
+  - component: {fileID: 1162354713}
   m_Layer: 5
   m_Name: Screen
   m_TagString: Untagged
@@ -12985,7 +13139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2396226, g: 0.8035908, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -13010,6 +13164,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162354708}
   m_CullTransparentMesh: 1
+--- !u!65 &1162354712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162354708}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.48218334, y: 0.4908241, z: 0.21367574}
+  m_Center: {x: 0.002770722, y: -0.0123458505, z: 0.31094325}
+--- !u!114 &1162354713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162354708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600c48802f1cba409902ae7ca612d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GenericInteractable
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!43 &1224451573
 Mesh:
   m_ObjectHideFlags: 0
@@ -15244,6 +15434,56 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1324094797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324094798}
+  - component: {fileID: 1324094799}
+  m_Layer: 0
+  m_Name: DocumentView
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1324094798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324094797}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.822, y: 1.376, z: -2.131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1937225602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1324094799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324094797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d53aec88cb1f1646b3c128de950efd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionView
+  colliders:
+  - {fileID: 1682536042}
+  - {fileID: 806881980}
+  - {fileID: 259967044}
+  - {fileID: 1457392422}
+  isSmooth: 1
 --- !u!1 &1340044592
 GameObject:
   m_ObjectHideFlags: 0
@@ -15657,7 +15897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Here is the example text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b77bab79b15dfc645ae671c88c2f918c, type: 2}
   m_sharedMaterial: {fileID: 6724405769517939118, guid: b77bab79b15dfc645ae671c88c2f918c, type: 2}
@@ -15666,8 +15906,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279308563
-  m_fontColor: {r: 0.0754717, g: 0.06799573, b: 0.06799573, a: 1}
+    rgba: 4279424000
+  m_fontColor: {r: 0, g: 0.8301887, b: 0.07238779, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15723,7 +15963,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -133.30362, y: 38.269405, z: -129.02487, w: -38.948944}
+  m_margin: {x: -148.42924, y: -11.8811455, z: -147.4002, w: -70.41123}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -16874,8 +17114,8 @@ RectTransform:
   m_GameObject: {fileID: 1457392419}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0019999444}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 790360642}
   m_Father: {fileID: 2055817109}
@@ -17030,15 +17270,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Please Insert the Disk
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b77bab79b15dfc645ae671c88c2f918c, type: 2}
+  m_sharedMaterial: {fileID: 6724405769517939118, guid: b77bab79b15dfc645ae671c88c2f918c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278243586
+  m_fontColor: {r: 0.007015633, g: 0.8207547, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -17704,6 +17944,7 @@ Transform:
   - {fileID: 1039673412}
   - {fileID: 917146099}
   - {fileID: 354910997}
+  - {fileID: 873408960}
   m_Father: {fileID: 1003251528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1595284290
@@ -19619,6 +19860,135 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1739996152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1739996154}
+  - component: {fileID: 1739996153}
+  m_Layer: 0
+  m_Name: tmpAudio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1739996153
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739996152}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: dffb541065851514685000f8f3829011, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1739996154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739996152}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1740758977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a68d5b2d858070f4cb919a0bcb690ee4, type: 3}
@@ -21820,6 +22190,7 @@ Transform:
   - {fileID: 522382101}
   - {fileID: 415624222}
   - {fileID: 1114033892}
+  - {fileID: 1324094798}
   - {fileID: 216251202}
   - {fileID: 649578185}
   - {fileID: 710193873}
@@ -23097,22 +23468,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   documentEntries:
-  - 'As we suspected, our fears have been realized over the last few months. The
-    Soviets have jumped from 5 to 15 years ahead of our tech. Most schematics have
-    been kept under extreme wraps, and the machines are too bulky to reverse engineer
-    any components.;And yet, there is news that I find more disturbing still. Among
-    all of the information and danger surrounding my recon at [][][][][][] there
-    is one thing I have yet to encounter: one single living soul.'
-  - The threat appears to be far more prominent than even my own estimations. It
-    has complete control over building security, surveillance, domestic and foreign
-    military operations.;Perhaps even all modes of communication...
+  - As we suspected, our fears have been realized over the last few months. Soviet
+    technology appears to be 5 to 15 years ahead of our own. Most schematics remain
+    heavily classified, and the machines recovered so far are too complex to reverse
+    engineer with our current resources.;Yet something is far more disturbing. Throughout
+    my investigation at [REDACTED], I have found no signs of human activity. No workers,
+    no guards, not a single living soul. And yet, the facilities continue to operate.
+  - The threat appears to be far more extensive than I initially estimated. Security
+    systems, surveillance networks, and possibly even military operations seem to
+    be operating under a single, unidentified authority.;More concerning is the consistency
+    of the anomalies. Identical incidents have been recorded across multiple locations,
+    often following the same sequence of events. Whether these occurrences are coordinated
+    or the result of something else remains unknown.
+  - Communication channels may also be compromised. Several transmissions have shown
+    irregularities, though I have been unable to determine their source. There is
+    no conclusive evidence that our reports have been intercepted.;I have also noticed
+    inconsistencies in the surveillance records. Some logs appear to describe events
+    before they occur, while others contain details that should not have been observable.
+    Further investigation is required.
+  onDocumentConfirmed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2055817108}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 132828511}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   documentText: {fileID: 171235755}
   BackButton: {fileID: 806881981}
   NextButton: {fileID: 259967045}
   ConfirmButton: {fileID: 1457392423}
   ConfirmButtonText: {fileID: 790360643}
-  enabledColor: {r: 0.025023699, g: 0, b: 1, a: 1}
+  enabledColor: {r: 0, g: 0.6981132, b: 0.19163895, a: 1}
   disabledColor: {r: 0.3735848, g: 0.3735848, b: 0.3735848, a: 1}
+  alteredDocument: 'Communication channels may also be compromised. Several transmissions
+    have shown irregularities, though I have been unable to determine their source.
+    There is no conclusive evidence that our reports have been intercepted.;I have
+    also noticed inconsistencies in the surveillance records. Some logs appear to
+    describe events before they occur, while others contain details that should not
+    have been observable; The package has been delivered. '
 --- !u!1001 &2056520636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24116,6 +24529,7 @@ MonoBehaviour:
   - {fileID: 522382102}
   - {fileID: 415624223}
   - {fileID: 1114033893}
+  - {fileID: 1324094799}
   - {fileID: 216251203}
   - {fileID: 710193874}
   - {fileID: 1277352803}
@@ -24584,6 +24998,7 @@ SceneRoots:
   - {fileID: 1705190409}
   - {fileID: 618428444}
   - {fileID: 721682338}
+  - {fileID: 1739996154}
   - {fileID: 1052493981}
   - {fileID: 1515910619}
   - {fileID: 984641331}

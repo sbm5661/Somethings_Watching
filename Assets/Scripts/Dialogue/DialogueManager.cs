@@ -57,6 +57,9 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TriggerDialogue(List<DialogueLine> dialogueLines)
     {
+        // Close inventory when dialogue begins
+        onDialogueStarted?.Invoke();
+
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Dialogue triggered");
         dialoguePanel.SetActive(true);
