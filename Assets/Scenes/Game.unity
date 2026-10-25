@@ -4935,6 +4935,50 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &448106027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 448106029}
+  - component: {fileID: 448106028}
+  m_Layer: 0
+  m_Name: PowerRestoredCondition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &448106028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448106027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c38917b2eae154fa81d737a93363f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryCondition
+--- !u!4 &448106029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448106027}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1591768883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &460234807
 Mesh:
   m_ObjectHideFlags: 0
@@ -7877,7 +7921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractionView
   colliders:
   - {fileID: 1494276545}
-  isSmooth: 1
+  isSmooth: 0
 --- !u!1 &711588254
 GameObject:
   m_ObjectHideFlags: 0
@@ -7888,6 +7932,8 @@ GameObject:
   m_Component:
   - component: {fileID: 711588255}
   - component: {fileID: 711588256}
+  - component: {fileID: 711588257}
+  - component: {fileID: 711588258}
   m_Layer: 0
   m_Name: FuseboxButtonHitbox
   m_TagString: Untagged
@@ -7931,6 +7977,72 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.6, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &711588257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711588254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600c48802f1cba409902ae7ca612d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GenericInteractable
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 711588258}
+        m_TargetAssemblyTypeName: FuseSwitchController, Assembly-CSharp
+        m_MethodName: ActivateSwitch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &711588258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711588254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44583ff4e8624304b9936b7028102ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FuseSwitchController
+  onPowerRestored:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1896735751}
+        m_TargetAssemblyTypeName: PowerOutageController, Assembly-CSharp
+        m_MethodName: RestorePower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 448106028}
+        m_TargetAssemblyTypeName: StoryCondition, Assembly-CSharp
+        m_MethodName: SetCondition
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!43 &716062833
 Mesh:
   m_ObjectHideFlags: 0
@@ -13276,6 +13388,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+    conditions:
+    - {fileID: 1990673883}
+  - flagName: Return Home
+    onFlagSet:
+      m_PersistentCalls:
+        m_Calls: []
     conditions:
     - {fileID: 1990673883}
 --- !u!1 &1039673411
@@ -18699,6 +18817,7 @@ Transform:
   - {fileID: 354910997}
   - {fileID: 873408960}
   - {fileID: 1990673884}
+  - {fileID: 448106029}
   m_Father: {fileID: 1003251528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1595284290
