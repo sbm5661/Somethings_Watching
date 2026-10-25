@@ -5,7 +5,7 @@ public class InteractionManager : MonoBehaviour
 {
     [SerializeField] private Camera activeCamera;
     private HoverHighlight currentHover;
-
+    public Transform hitTracker;
     void Update()
     {
         // Ignore world interactions while hovering over UI
@@ -22,12 +22,12 @@ public class InteractionManager : MonoBehaviour
             return;
 
         Ray ray = activeCamera.ScreenPointToRay(Input.mousePosition);
-
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             IInteractable target =
                 hit.collider.GetComponentInParent<IInteractable>();
-
+            hitTracker.position = hit.point;
+            Debug.Log(hit.transform.name);
             target?.Interact();
         }
     }

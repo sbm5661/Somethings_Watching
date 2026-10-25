@@ -7,6 +7,7 @@ public class Computer : MonoBehaviour
 {
     [SerializeField] Image progressBar;
     [SerializeField] TextMeshProUGUI UploadingText;
+    [SerializeField] StoryCondition uploadCondition;
     public void ScreenClicked()
     {
         UploadingText.gameObject.SetActive(true);
@@ -17,7 +18,7 @@ public class Computer : MonoBehaviour
     {
         amount = Mathf.Clamp(amount, 0f, 1f);
         progressBar.DOFillAmount(amount, duration).SetEase(Ease.Linear).OnComplete(() => {
-            // Code goes here
+            uploadCondition.SetCondition(true);
         });
     }
 }
