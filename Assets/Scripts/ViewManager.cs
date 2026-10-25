@@ -46,6 +46,7 @@ public class ViewManager : MonoBehaviour
         if (currentView != null)
             viewHistory.Push(currentView);
 
+        Debug.Log($"Moving to {nextView.transform.name}");
         StartCoroutine(TransitionTo(nextView));
     }
 
@@ -79,11 +80,21 @@ public class ViewManager : MonoBehaviour
 
         Transform target = nextView.CameraTarget;
 
-        CameraController.Instance.MoveCameraSmooth(
-            target.position,
-            target.eulerAngles,
-            moveDuration
-        );
+        if (nextView.isSmooth)
+        {
+            CameraController.Instance.MoveCameraSmooth(
+                target.position,
+                target.eulerAngles,
+                moveDuration
+            );
+        }
+        else
+        {
+            CameraController.Instance.MoveCamera(
+                target.position,
+                target.eulerAngles
+            );
+        }
 
         yield return new WaitForSeconds(moveDuration);
 
