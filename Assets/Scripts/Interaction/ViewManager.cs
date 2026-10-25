@@ -10,6 +10,10 @@ public class ViewManager : MonoBehaviour
     [SerializeField] private InteractionView[] allViews;
     [SerializeField] private float moveDuration = 1f;
 
+    [Header("Peephole UI")]
+    [SerializeField] private InteractionView[] peepholeViews;
+    [SerializeField] private GameObject peepholeCanvas;
+
     private InteractionView currentView;
     private Stack<InteractionView> viewHistory = new();
 
@@ -28,10 +32,12 @@ public class ViewManager : MonoBehaviour
         {
             currentView.SetInteractionsActive(true);
         }
+
+        UpdatePeepholeUI();
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isExitLocked)
+        if (Input.GetKeyDown(KeyCode.Backspace) && !isExitLocked)
             GoBack();
     }
     
@@ -105,6 +111,8 @@ public class ViewManager : MonoBehaviour
         currentView = nextView;
         currentView.SetInteractionsActive(true);
 
+        UpdatePeepholeUI();
+
         isMoving = false;
     }
 
@@ -117,5 +125,24 @@ public class ViewManager : MonoBehaviour
                 view.SetInteractionsActive(active);
             }
         }
+    }
+
+    private void UpdatePeepholeUI()
+    {
+        if (peepholeCanvas == null)
+            return;
+
+        bool isPeepholeView = false;
+
+        foreach (InteractionView view in peepholeViews)
+        {
+            if (view == currentView)
+            {
+                isPeepholeView = true;
+                break;
+            }
+        }
+
+        peepholeCanvas.SetActive(isPeepholeView);
     }
 }

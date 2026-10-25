@@ -4,6 +4,7 @@ using UnityEngine;
 public class PeepholeInteraction : MonoBehaviour
 {
     [SerializeField] private ViewManager viewManager;
+    [SerializeField] private GameObject peepholeCanvas;
 
     [Header("Views")]
     [SerializeField] private InteractionView normalView;
