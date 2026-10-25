@@ -490,6 +490,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127372670}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &150698663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
+  m_PrefabInstance: {fileID: 1964609027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &155244019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,7 +2957,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &314054730
 MonoBehaviour:
@@ -3885,6 +3890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionView
   colliders:
+  - {fileID: 314054729}
   - {fileID: 947869156}
 --- !u!1 &415624221
 GameObject:
@@ -3912,7 +3918,7 @@ Transform:
   m_GameObject: {fileID: 415624221}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.202, y: 1.483, z: -2.1}
+  m_LocalPosition: {x: -0.202, y: 1.483, z: -2.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3930,7 +3936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d53aec88cb1f1646b3c128de950efd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionView
-  colliders: []
+  colliders:
+  - {fileID: 1964609031}
 --- !u!1 &420645082
 GameObject:
   m_ObjectHideFlags: 0
@@ -7931,7 +7938,7 @@ GameObject:
   - component: {fileID: 693634571}
   - component: {fileID: 693634572}
   m_Layer: 0
-  m_Name: storyDoorLockedCondition
+  m_Name: DoorLockedCondition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9499,6 +9506,38 @@ MonoBehaviour:
   onDialogueFinished:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &787913131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5540591716623830852, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
+  m_PrefabInstance: {fileID: 1964609027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &787913135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787913131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600c48802f1cba409902ae7ca612d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GenericInteractable
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 984641332}
+        m_TargetAssemblyTypeName: WindowController, Assembly-CSharp
+        m_MethodName: ToggleBlinds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &788628305
 GameObject:
   m_ObjectHideFlags: 0
@@ -12274,6 +12313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984641331}
+  - component: {fileID: 984641332}
   m_Layer: 0
   m_Name: Window
   m_TagString: Untagged
@@ -12290,7 +12330,7 @@ Transform:
   m_GameObject: {fileID: 984641330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.331, y: 0.41500998, z: -0.838}
+  m_LocalPosition: {x: -0.15, y: 0.41500998, z: -0.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12298,6 +12338,21 @@ Transform:
   - {fileID: 314054728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &984641332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984641330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db91a37533abf494f9b30e4ca8514a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindowController
+  blinds: {fileID: 787913131}
+  isLocked: 0
+  lockedCondition: {fileID: 1352948252}
 --- !u!1 &984820516
 GameObject:
   m_ObjectHideFlags: 0
@@ -15994,9 +16049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db91a37533abf494f9b30e4ca8514a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindowController
-  slidingPanel: {fileID: 1971151743}
-  openHeight: 0.7
-  isOpen: 1
+  blinds: {fileID: 0}
   isLocked: 0
   lockedCondition: {fileID: 1321418428}
 --- !u!4 &1327550902
@@ -16375,6 +16428,50 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1352948250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352948251}
+  - component: {fileID: 1352948252}
+  m_Layer: 0
+  m_Name: WindowLockedCondition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1352948251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352948250}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1591768883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1352948252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352948250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c38917b2eae154fa81d737a93363f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryCondition
 --- !u!1 &1358317373
 GameObject:
   m_ObjectHideFlags: 0
@@ -18386,6 +18483,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 693634571}
+  - {fileID: 1352948251}
   m_Father: {fileID: 1003251528}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1595284290
@@ -22738,7 +22836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1937225602}
   m_Layer: 0
-  m_Name: ViewCameras
+  m_Name: CameraViews
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23132,7 +23230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23178,6 +23276,18 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1964609031}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1964609034}
+    - targetCorrespondingSourceObject: {fileID: -5540591716623830852, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 787913135}
+    - targetCorrespondingSourceObject: {fileID: -7656643944074887334, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1964609033}
     - targetCorrespondingSourceObject: {fileID: 5769484663829117588, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1964609030}
@@ -23206,10 +23316,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Outline
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 4
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!65 &1964609031
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150698663}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 3}
+  m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!1 &1964609032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7656643944074887334, guid: 10fb0769e931e9d48a76345f52a5cee4, type: 3}
+  m_PrefabInstance: {fileID: 1964609027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1964609033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964609032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1964609034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150698663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600c48802f1cba409902ae7ca612d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GenericInteractable
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 984641332}
+        m_TargetAssemblyTypeName: WindowController, Assembly-CSharp
+        m_MethodName: ToggleBlinds
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1971151742
 GameObject:
   m_ObjectHideFlags: 0
