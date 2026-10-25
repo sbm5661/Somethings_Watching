@@ -975,6 +975,195 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &200708893
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.42694873
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 47.93369
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.171
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.702
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8089521
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.58787465
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 72.013
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      propertyPath: m_Name
+      value: PlaneTicket
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200708895}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200708899}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200708898}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200708897}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200708896}
+  m_SourcePrefab: {fileID: 100100000, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+--- !u!1 &200708894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8dc827a949a9f2949a0520e4e4514acb, type: 3}
+  m_PrefabInstance: {fileID: 200708893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &200708895
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200708894}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.3, z: 0.01}
+  m_Center: {x: 0, y: 0, z: -0.00025349043}
+--- !u!114 &200708896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200708894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &200708897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200708894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a171d77e2ff3841811ed2778d2ba66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverHighlight
+  highlightEffect: {fileID: 200708896}
+--- !u!114 &200708898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200708894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600c48802f1cba409902ae7ca612d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GenericInteractable
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 200708899}
+        m_TargetAssemblyTypeName: PickupItem, Assembly-CSharp
+        m_MethodName: Pickup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &200708899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200708894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78411da2cdd5f46a24e0676e20081a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
+  itemID: PlaneTicket
+  onPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  pickupStoryFlag: Leaving
 --- !u!1 &202617500
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,6 +5930,7 @@ MonoBehaviour:
           m_StringArgument: Press [I] to open the inventory
           m_BoolArgument: 0
         m_CallState: 2
+  pickupStoryFlag: 
 --- !u!1 &514934624
 GameObject:
   m_ObjectHideFlags: 0
@@ -10017,7 +10207,7 @@ MonoBehaviour:
       duration: 1.5
   - dialogueTitle: Leaving
     sequence:
-    - dialogue: Time to go. I just need my passport.
+    - dialogue: Time to go. I just need my plane ticket.
       duration: 1.5
   onDialogueStarted:
     m_PersistentCalls:
@@ -26530,6 +26720,7 @@ SceneRoots:
   - {fileID: 984641331}
   - {fileID: 609612836}
   - {fileID: 494262704}
+  - {fileID: 200708893}
   - {fileID: 420461857}
   - {fileID: 1665724111}
   - {fileID: 1816793581}
