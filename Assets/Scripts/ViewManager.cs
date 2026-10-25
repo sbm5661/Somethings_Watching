@@ -63,9 +63,9 @@ public class ViewManager : MonoBehaviour
             return;
 
         viewHistory.Pop();
-        StartCoroutine(TransitionTo(previousView));
+        StartCoroutine(TransitionTo(previousView, true));
     }
-    private IEnumerator TransitionTo(InteractionView nextView)
+    private IEnumerator TransitionTo(InteractionView nextView, bool overrideTransision = false)
     {
         if (nextView.CameraTarget == null ||
             CameraController.Instance == null)
@@ -79,8 +79,8 @@ public class ViewManager : MonoBehaviour
         SetAllInteractions(false);
 
         Transform target = nextView.CameraTarget;
-
-        if (nextView.isSmooth)
+        bool overrideResult = overrideTransision ? !nextView.isSmooth : nextView.isSmooth;
+        if (overrideResult)
         {
             CameraController.Instance.MoveCameraSmooth(
                 target.position,
