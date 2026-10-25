@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using System;
+using DG.Tweening;
 using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
@@ -49,6 +49,7 @@ public class DialogueManager : MonoBehaviour
 
         for (int i = 0; i < dialogueLines.Count; i++)
         {
+            dialoguePanel.transform.DOShakePosition(duration: dialogueLines[i].duration, strength: 10f, fadeOut: false);
             dialogueText.text = dialogueLines[i].dialogue;
             yield return new WaitForSeconds(dialogueLines[i].duration);
         }
