@@ -5,7 +5,7 @@ public class WindowController : MonoBehaviour
 {
     [Header("Blinds")]
     [SerializeField] private Transform blinds;
-    [SerializeField] private float openHeight = 0.7f;
+    [SerializeField] private float openHeight = 1f;
     [SerializeField] private float moveDuration = 0.6f;
 
     [Header("State")]
